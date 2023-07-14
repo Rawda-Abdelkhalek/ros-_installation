@@ -1,0 +1,57 @@
+
+ # 1-create folder on the desktop
+ rawda@rawda:~$ mkdir Ros
+ 
+ # 2-go inside the dir
+ rawda@rawda:~$ cd Ros
+
+ # 3-create bash file
+ rawda@rawda:~/Ros$ touch ros_installation.sh
+
+ # 4-change bash file permission
+ rawda@rawda:~/Ros$ chmod 742 ros_installation.sh
+
+ # 5-open bash file and copy this commads
+ #! /usr/bin/bash
+
+ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" >
+ /etc/apt/sources.list.d/ros-latest.list'
+
+ sudo apt install curl
+
+ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
+ sudo apt update
+
+ sudo apt install ros-noetic-desktop-full
+
+ echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+
+ source ~/.bashrc
+
+ source /opt/ros/noetic/setup.bash
+
+ sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+
+ sudo apt install python3-rosdep
+
+ sudo apt install python3-roslaunch
+
+ sudo rosdep init
+
+ rosdep update
+
+ # 6-run the bash file 
+ ./ros_installation.sh
+
+ # 7- to make sure ros1 install
+ rawda@rawda:~/Ros$ printenv | grep ROS
+ ROS_VERSION=1
+ ROS_PYTHON_VERSION=3
+ ROS_PACKAGE_PATH=/opt/ros/noetic/share
+ ROSLISP_PACKAGE_DIRECTORIES=
+ ROS_ETC_DIR=/opt/ros/noetic/etc/ros
+ ROS_MASTER_URI=http://localhost:11311
+ ROS_ROOT=/opt/ros/noetic/share/ros
+ ROS_DISTRO=noetic
+
